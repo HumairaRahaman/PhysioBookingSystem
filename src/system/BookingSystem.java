@@ -31,27 +31,27 @@ public class BookingSystem {
         physiotherapists.add(physiotherapist);
     }
 
-//    public void removePhysiotherapist(Physiotherapist physiotherapist) {
-//        physiotherapists.remove(physiotherapist);
-//    }
-//
-//    public Physiotherapist findPhysiotherapistById(String id) {
-//        for (Physiotherapist physio : physiotherapists) {
-//            if (physio.getId().equals(id)) {
-//                return physio;
-//            }
-//        }
-//        return null;
-//    }
+    public void removePhysiotherapist(Physiotherapist physiotherapist) {
+        physiotherapists.remove(physiotherapist);
+    }
 
-//    public Physiotherapist findPhysiotherapistByName(String name) {
-//        for (Physiotherapist physio : physiotherapists) {
-//            if (physio.getName().equalsIgnoreCase(name)) {
-//                return physio;
-//            }
-//        }
-//        return null;
-//    }
+    public Physiotherapist findPhysiotherapistById(String id) {
+        for (Physiotherapist physio : physiotherapists) {
+            if (physio.getId().equals(id)) {
+                return physio;
+            }
+        }
+        return null;
+    }
+
+    public Physiotherapist findPhysiotherapistByName(String name) {
+        for (Physiotherapist physio : physiotherapists) {
+            if (physio.getName().equalsIgnoreCase(name)) {
+                return physio;
+            }
+        }
+        return null;
+    }
 
     public List<Physiotherapist> getPhysiotherapists() {
         return new ArrayList<>(physiotherapists);
@@ -92,14 +92,14 @@ public class BookingSystem {
         return null;
     }
 
-//    public Patient findPatientByName(String name) {
-//        for (Patient patient : patients) {
-//            if (patient.getName().equalsIgnoreCase(name)) {
-//                return patient;
-//            }
-//        }
-//        return null;
-//    }
+    public Patient findPatientByName(String name) {
+        for (Patient patient : patients) {
+            if (patient.getName().equalsIgnoreCase(name)) {
+                return patient;
+            }
+        }
+        return null;
+    }
 
     public List<Patient> getPatients() {
         return new ArrayList<>(patients);
@@ -110,14 +110,14 @@ public class BookingSystem {
         return new ArrayList<>(treatments);
     }
 
-//    public Treatment findTreatmentByName(String name) {
-//        for (Treatment treatment : treatments) {
-//            if (treatment.getName().equalsIgnoreCase(name)) {
-//                return treatment;
-//            }
-//        }
-//        return null;
-//    }
+    public Treatment findTreatmentByName(String name) {
+        for (Treatment treatment : treatments) {
+            if (treatment.getName().equalsIgnoreCase(name)) {
+                return treatment;
+            }
+        }
+        return null;
+    }
 
     // Appointment management
     public List<Appointment> findAvailableAppointmentsByExpertise(String expertise) {
