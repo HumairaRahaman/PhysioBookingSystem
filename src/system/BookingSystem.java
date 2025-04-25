@@ -237,7 +237,7 @@ public class BookingSystem {
     // Reporting
     public String generateReport() {
         StringBuilder report = new StringBuilder();
-        report.append("=== HERTS PHYSIO CLINIC REPORT ===\n\n");
+        report.append("=== BOOST PHYSIO CLINIC REPORT ===\n\n");
 
         // List all appointments by physiotherapist
         report.append("APPOINTMENTS BY PHYSIOTHERAPIST\n");
