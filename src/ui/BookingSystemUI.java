@@ -22,7 +22,7 @@ public class BookingSystemUI {
     }
 
     public void start() {
-        System.out.println("Welcome to Boost Physio Clinic Booking System");
+        System.out.println("Welcome to Herts Physio Clinic Booking System");
 
         boolean running = true;
         while (running) {
@@ -70,7 +70,7 @@ public class BookingSystemUI {
             }
         }
 
-        System.out.println("Thank you for using Boost Physio Clinic Booking System.");
+        System.out.println("Thank you for using Herts Physio Clinic Booking System.");
         scanner.close();
     }
 
@@ -141,7 +141,7 @@ public class BookingSystemUI {
     }
 
     private void displayMainMenu() {
-        System.out.println("\n=== Boost Physio Clinic Main Menu ===");
+        System.out.println("\n=== Herts Physio Clinic Main Menu ===");
         System.out.println("Current Patient: " + currentPatient.getName());
         System.out.println("1. Book an appointment");
         System.out.println("2. Change or cancel an appointment");

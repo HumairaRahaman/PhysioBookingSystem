@@ -154,7 +154,7 @@ public class BookingSystem {
             return false;
         }
 
-        // Check if patient already has an appointment at this time
+        // If patient already has an appointment at this time
         if (patient.hasAppointmentAt(appointment)) {
             return false;
         }
@@ -185,17 +185,17 @@ public class BookingSystem {
             return false;
         }
 
-        // Check if the old appointment belongs to this patient
+        // If the old appointment belongs to this patient
         if (oldAppointment.getPatient() == null || !oldAppointment.getPatient().equals(patient)) {
             return false;
         }
 
-        // if the new appointment is available
+        // If the new appointment is available
         if (newAppointment.getStatus() != AppointmentStatus.AVAILABLE) {
             return false;
         }
 
-        // if patient already has another appointment at this new time (excluding the old one)
+        // If patient already has another appointment at this new time (excluding the old one)
         if (patient.hasAppointmentAt(newAppointment)) {
             return false;
         }
@@ -233,12 +233,13 @@ public class BookingSystem {
         return appointment.attend();
     }
 
+
     // Reporting
     public String generateReport() {
         StringBuilder report = new StringBuilder();
-        report.append("=== BOOST PHYSIO CLINIC REPORT ===\n\n");
+        report.append("=== HERTS PHYSIO CLINIC REPORT ===\n\n");
 
-        // 1. List all appointments by physiotherapist
+        // List all appointments by physiotherapist
         report.append("APPOINTMENTS BY PHYSIOTHERAPIST\n");
         report.append("===============================\n");
 
@@ -294,15 +295,15 @@ public class BookingSystem {
     // Initialize sample data
     public void initializeSampleData() {
         // Create physiotherapists
-        Physiotherapist p1 = new Physiotherapist("PT1", "John Smith", "123 Main St", "555-1111");
+        Physiotherapist p1 = new Physiotherapist("PT_1", "Jhon Sanchez", "123 Main St", "555-1111");
         p1.addExpertise("Physiotherapy");
         p1.addExpertise("Rehabilitation");
 
-        Physiotherapist p2 = new Physiotherapist("PT2", "Helen Johnson", "456 Elm St", "555-2222");
+        Physiotherapist p2 = new Physiotherapist("PT_2", "Helen Johnson", "456 Elm St", "555-2222");
         p2.addExpertise("Osteopathy");
         p2.addExpertise("Rehabilitation");
 
-        Physiotherapist p3 = new Physiotherapist("PT3", "David Lee", "789 Oak St", "555-3333");
+        Physiotherapist p3 = new Physiotherapist("PT_3", "David Lee", "789 Oak St", "555-3333");
         p3.addExpertise("Physiotherapy");
         p3.addExpertise("Acupuncture");
 
@@ -313,7 +314,7 @@ public class BookingSystem {
         // Create patients
         for (int i = 1; i <= 10; i++) {
             Patient patient = new Patient(
-                    String.format("PAT%03d", i),
+                    String.format("PAT_%01d", i),
                     String.format("Patient %d", i),
                     String.format("%d City Street", i * 100),
                     String.format("555-%04d", i));
@@ -350,8 +351,10 @@ public class BookingSystem {
                 for (int slot = 0; slot < slotsThisDay; slot++) {
                     // Create an appointment at this time
                     Treatment treatment = treatments.get(random.nextInt(treatments.size()));
-                    LocalDateTime appointmentStart = currentDate.plusHours(slot * 2); // 2-hour intervals
-                    LocalDateTime appointmentEnd = appointmentStart.plusHours(1); // 1-hour appointments
+                    // 2-hour intervals
+                    LocalDateTime appointmentStart = currentDate.plusHours(slot * 2);
+                    // 1-hour appointments
+                    LocalDateTime appointmentEnd = appointmentStart.plusHours(1);
 
                     Appointment appointment = new Appointment(appointmentStart, appointmentEnd, physio, treatment);
                     physio.addAppointmentSlot(appointment);
@@ -362,7 +365,8 @@ public class BookingSystem {
             }
 
             // Move to the start of next week
-            while (currentDate.getDayOfWeek().getValue() != 1) { // Move to Monday
+            // Move to Monday
+            while (currentDate.getDayOfWeek().getValue() != 1) {
                 currentDate = currentDate.plusDays(1);
             }
         }

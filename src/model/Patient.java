@@ -25,7 +25,7 @@ public class Patient extends Person {
 
     public boolean hasAppointmentAt(Appointment newAppointment) {
         for (Appointment booking : bookings) {
-            // Check if the booking is not cancelled and times overlap
+            //if the booking is not cancelled and times overlap
             if (booking.getStatus() != AppointmentStatus.CANCELLED &&
                     booking.getDateTime().equals(newAppointment.getDateTime())) {
                 return true;
